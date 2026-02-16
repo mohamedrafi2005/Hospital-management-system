@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare | Modern Hospital Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2a52be;
+            --secondary: #00d2ff;
+            --accent: #ff4b5c;
+            --light: #f4f7f6;
+            --dark: #2d3436;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--dark);
+            margin: 0 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Emergency Section --- */
+        .emergency-bar {
+            background: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(45deg, rgba(42, 82, 190, 0.8), rgba(0, 210, 255, 0.8)), 
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- Doctor Cards --- */
+        .section-title {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .doctor-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
+            margin-bottom: 50px;
+        }
+
+        .doc-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(42, 82, 190, 0.2);
+        }
+
+        .doc-img {
+            width: 100%;
+            height: 200px;
+            background: #ddd;
+            object-fit: cover;
+        }
+
+        .doc-card h3 { margin-top: 15px; }
+        .doc-card p { color: #777; font-size: 0.9rem; }
+
+        /* --- Appointment Form --- */
+        .booking-section {
+            background: var(--white);
+            padding: 50px 5%;
+            margin: 50px 0;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--light);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus { border-color: var(--primary); }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover { background: #1e3a8a; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for demo */
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="emergency-bar">
+        ⚠️ EMERGENCY: Call 1-800-999-HELP | 24/7 Ambulance Available
+    </div>
+
+    <nav>
+        <div class="logo">✚ MediCare</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Doctors</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Your Health, Our Priority</h1>
+        <p>Advanced Medical Solutions & Compassionate Care</p>
+    </header>
+
+    <section id="doctors">
+        <h2 class="section-title">Meet Our Specialists</h2>
+        <div class="doctor-container">
+            <div class="doc-card">
+                <img src="https://i.pravatar.cc/300?img=60" alt="Doctor" class="doc-img">
+                <h3>Dr. Sarah Jenkins</h3>
+                <p>Cardiology Specialist</p>
+            </div>
+            <div class="doc-card">
+                <img src="https://i.pravatar.cc/300?img=11" alt="Doctor" class="doc-img">
+                <h3>Dr. James Wilson</h3>
+                <p>Neurology Department</p>
+            </div>
+            <div class="doc-card">
+                <img src="https://i.pravatar.cc/300?img=5" alt="Doctor" class="doc-img">
+                <h3>Dr. Maria Garcia</h3>
+                <p>Pediatric Care</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <h2 class="section-title">Book an Appointment</h2>
+        <div class="form-container">
+            <form id="appointmentForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="email@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Select Department</label>
+                    <select id="dept">
+                        <option>Cardiology</option>
+                        <option>Neurology</option>
+                        <option>General Medicine</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Preferred Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <button type="submit" class="btn-submit">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+
+            if(name.length < 3) {
+                alert("Please enter a valid name.");
+                return;
+            }
+
+            alert(`Thank you, ${name}! Your appointment is scheduled for ${date}.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
